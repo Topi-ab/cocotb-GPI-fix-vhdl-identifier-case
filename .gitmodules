@@ -1,0 +1,6 @@
+[submodule "cocotb-fix"]
+	path = cocotb-fix
+	url = https://github.com/Topi-ab/cocotb.git
+[submodule "cocotb-upstream"]
+	path = cocotb-upstream
+	url = https://github.com/cocotb/cocotb.git

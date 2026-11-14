@@ -1,0 +1,3 @@
+#!/bin/sh
+# Icarus Verilog compiler from oss-cad-suite, next to the vvp wrapper (see the Dockerfile).
+exec /opt/oss-cad-suite/bin/iverilog "$@"

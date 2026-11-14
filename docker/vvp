@@ -1,0 +1,3 @@
+#!/bin/sh
+# Icarus Verilog vvp without the oss-cad-suite wrapper, which breaks loading cocotb (see the Dockerfile).
+exec /opt/oss-cad-suite/libexec/vvp "$@"

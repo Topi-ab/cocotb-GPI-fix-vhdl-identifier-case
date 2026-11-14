@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Run a command in the verification container, with this repository mounted at /src.
+#
+#   ./run verify/all.sh
+#   ./run verify/test.sh fix nvc
+#
+# The image is ghcr.io/topi-ab/cocotb-gpi-fix-vhdl-identifier-case:latest unless COCOTB_GPI_FIX_IMAGE says otherwise.
+# Everything the scripts write goes to work/ in this repository.
+set -euo pipefail
+ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+IMAGE=${COCOTB_GPI_FIX_IMAGE:-ghcr.io/topi-ab/cocotb-gpi-fix-vhdl-identifier-case:latest}
+mkdir -p "$ROOT/work"
+tty=()
+[ -t 0 ] && [ -t 1 ] && tty=(-it)
+exec docker run --rm --init "${tty[@]}" \
+    -u "$(id -u):$(id -g)" -e HOME=/tmp \
+    -v "$ROOT:/src" -w /src \
+    "$IMAGE" "$@"

@@ -1,0 +1,9 @@
+scikit-build-core==1.1.2
+packaging==26.3
+dynamic-metadata==0.6.0
+find_libpython==0.5.1
+pytest==9.2.0
+pytest-timeout==2.4.0
+ipython==9.16.1
+pexpect==4.9.0
+psutil==7.2.2
